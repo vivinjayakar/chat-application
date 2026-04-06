@@ -38,7 +38,7 @@ export default function App() {
     loadMessages();
 
     const stompClient = new Client({
-      webSocketFactory: () => new SockJS("http://localhost:8081/ws"),
+      webSocketFactory: () => new SockJS(`${import.meta.env.VITE_BACKEND_URL}/ws`),
       onConnect: () => {
         stompClient.subscribe("/topic/chat", () => {
           loadMessages();

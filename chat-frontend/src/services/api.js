@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:8081";
+const API = import.meta.env.VITE_BACKEND_URL;
 
 export const fetchMessages = () => axios.get(`${API}/messages`);
 export const sendMsg = (content) => axios.post(`${API}/send`, { content });
